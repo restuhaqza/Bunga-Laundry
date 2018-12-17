@@ -5,10 +5,6 @@
  */
 package bungalaundry.UI;
 
-import bungalaundry.Transaksi;
-import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author codexhaq

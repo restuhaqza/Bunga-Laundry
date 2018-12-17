@@ -23,7 +23,7 @@ public class RiwayatTransaksi extends javax.swing.JFrame {
     public RiwayatTransaksi() {
         initComponents();
     }
-
+    
     /**
      *
      */

@@ -17,8 +17,6 @@ public class BungaLaundry {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        Authenticate auth = new Authenticate();
         
         new Login_Auth().setVisible(true);
     }

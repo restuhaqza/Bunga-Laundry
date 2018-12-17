@@ -19,7 +19,7 @@ public class Transaksi {
     private String txtKurir;
     private int totalHarga;
 
-    public ArrayList<Transaksi> listTrans;
+    private ArrayList<Transaksi> listTrans;
     
     public Transaksi(){
         listTrans = new ArrayList<>();
@@ -118,7 +118,7 @@ public class Transaksi {
     };
     
     public ArrayList<Transaksi> data(){
-        return listTrans;
+        return this.listTrans;
     }
     
     public String getNamaOwner() {

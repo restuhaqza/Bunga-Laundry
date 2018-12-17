@@ -8,7 +8,10 @@ package bungalaundry.UI;
 import bungalaundry.Authenticate;
 import javax.swing.JOptionPane;
 
-
+class GetAdmin extends bungalaundry.Authenticate{
+    String AdminUser = getUsername();
+    String Pwd = getPassword(); 
+}
 /**
  *
  * @author Lenovo
@@ -245,14 +248,14 @@ public class Login_Auth extends javax.swing.JFrame {
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
-        Authenticate login = new Authenticate();
-        if(txt_username.getText().equals(login.getUsername()) && txt_password.getText().equals(login.getPassword())){
+        GetAdmin login = new GetAdmin();
+        if(txt_username.getText().equals(login.AdminUser) && txt_password.getText().equals(login.Pwd)){
 //            System.out.println("Login berhasil");
             this.dispose();
             new Form_Laundry().setVisible(true);
-        }else if(!txt_username.getText().equals(login.getUsername()) && txt_password.getText().equals(login.getPassword())){
+        }else if(!txt_username.getText().equals(login.AdminUser) && txt_password.getText().equals(login.Pwd)){
             JOptionPane.showMessageDialog(null,"Username Anda Salah","Error",JOptionPane.ERROR_MESSAGE);
-        }else if(txt_username.getText().equals(login.getUsername()) && !txt_password.getText().equals(login.getPassword())){
+        }else if(txt_username.getText().equals(login.AdminUser) && !txt_password.getText().equals(login.Pwd)){
             JOptionPane.showMessageDialog(null,"Password Anda Salah","Error",JOptionPane.ERROR_MESSAGE);
         }else{
             JOptionPane.showMessageDialog(null,"Username dan Password Anda Salah","Error",JOptionPane.ERROR_MESSAGE);

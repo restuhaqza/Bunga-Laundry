@@ -6,7 +6,6 @@
 package bungalaundry.UI;
 import bungalaundry.Authenticate;
 import bungalaundry.Transaksi;
-//import bungalaundry.ListTransaksi;
 /**
  *
  * @author Restuhaqza
