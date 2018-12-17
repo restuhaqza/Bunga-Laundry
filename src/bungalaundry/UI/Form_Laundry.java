@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package bungalaundry.UI;
-import bungalaundry.Authenticate;
 import bungalaundry.Transaksi;
 /**
  *
@@ -16,12 +15,13 @@ public class Form_Laundry extends javax.swing.JFrame {
      * Creates new form Form_Laundry
      */
     
-    Authenticate data = new Authenticate();
+    GetAdmin data = new GetAdmin();
     double totalHarga;
     Transaksi listTrans = new Transaksi();
     
     public Form_Laundry() {
         initComponents();
+        ekpedisiNull.isSelected();
     }
 
     /**
@@ -66,6 +66,7 @@ public class Form_Laundry extends javax.swing.JFrame {
         btnRiwayatTransaksi = new javax.swing.JButton();
         KilatWashing = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
+        ekpedisiNull = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
         userAdmin = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -172,6 +173,11 @@ public class Form_Laundry extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Cantarell", 3, 12)); // NOI18N
         jLabel2.setText("*Kami tidak melayani ekpedisi > 15 KM");
 
+        buttonGroup2.add(ekpedisiNull);
+        ekpedisiNull.setText("Tidak Menggunakan Ekpedisi");
+        ekpedisiNull.setToolTipText("Rp 12.000");
+        ekpedisiNull.setActionCommand("null");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -215,17 +221,20 @@ public class Form_Laundry extends javax.swing.JFrame {
                                 .addComponent(jLabel3))
                             .addComponent(jRadioButton6)
                             .addComponent(jRadioButton5)
-                            .addComponent(KilatWashing)))
+                            .addComponent(KilatWashing)
+                            .addComponent(ekpedisiNull)))
                     .addComponent(btnRiwayatTransaksi)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnTotalHarga)
                             .addComponent(lblTotal))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTotalHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(txtTotalHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(45, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(27, 27, 27))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,19 +277,21 @@ public class Form_Laundry extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRadioButton5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton6)))
+                        .addComponent(jRadioButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ekpedisiNull, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnTotalHarga)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNoHp)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtNoHp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblTotal))
                     .addComponent(txtTotalHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
                     .addComponent(btnReset)
@@ -395,8 +406,12 @@ public class Form_Laundry extends javax.swing.JFrame {
                 break;
         }
         
-        kurir = this.buttonGroup2.getSelection().getActionCommand();
-        if(type_price != 0){
+        if(this.buttonGroup2.getSelection().getActionCommand() != null){
+            kurir = this.buttonGroup2.getSelection().getActionCommand();
+        }else{
+            kurir = "0";
+        }
+            if(type_price != 0){
             if(null == kurir) {
             } else {
                 switch (kurir) {
@@ -518,6 +533,7 @@ public class Form_Laundry extends javax.swing.JFrame {
     private javax.swing.JButton btnTotalHarga;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JRadioButton ekpedisiNull;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
