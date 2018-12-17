@@ -5,7 +5,6 @@
  */
 package bungalaundry.UI;
 
-import bungalaundry.Authenticate;
 import javax.swing.JOptionPane;
 
 class GetAdmin extends bungalaundry.Authenticate{

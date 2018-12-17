@@ -17,7 +17,6 @@ public class BungaLaundry {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
         new Login_Auth().setVisible(true);
     }
     
